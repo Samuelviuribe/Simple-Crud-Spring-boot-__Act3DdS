@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
@@ -11,5 +7,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <h1>SAMUEL</h1>
+        <p th:text="Ejemplo"></p>
+        
+        <hr>
+        <b>Cedula: </b><span th:text="${alguien.cedula}"></span><br>
+        <b>Nombre: </b><span th:text="${alguien.nombre}"></span><br>
+        <b>Apellidos: </b><span th:text="${alguien.apellidos}"></span><br>
+        <b>Email: </b><span th:text="${alguien.email}"></span><br>
+        <b>Username: </b><span th:text="${alguien.username}"></span><br>
+        <b>Rol: </b><span th:text="${alguien.rol}"></span><br>
+        <b>Telefono: </b><span th:text="${alguien.telefono}"></span><br>
+        <b>Estado: </b><span th:text="${alguien.estado}"></span><br>
+
     </body>
 </html>
