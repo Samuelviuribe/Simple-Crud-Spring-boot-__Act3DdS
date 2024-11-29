@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
+        <title>Actividad #3 Samuel Viaña</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>SAMUEL</h1>
-        <p th:text="Ejemplo"></p>
-        
-        <hr>
-        <b>Cedula: </b><span th:text="${alguien.cedula}"></span><br>
-        <b>Nombre: </b><span th:text="${alguien.nombre}"></span><br>
-        <b>Apellidos: </b><span th:text="${alguien.apellidos}"></span><br>
-        <b>Email: </b><span th:text="${alguien.email}"></span><br>
-        <b>Username: </b><span th:text="${alguien.username}"></span><br>
-        <b>Rol: </b><span th:text="${alguien.rol}"></span><br>
-        <b>Telefono: </b><span th:text="${alguien.telefono}"></span><br>
-        <b>Estado: </b><span th:text="${alguien.estado}"></span><br>
+        <h2>Página de Inicio</h2>
+        <h4>Lista de estudiantes</h4>
+        <div th:if="${estudiantes != null and !estudiantes.empty}">
 
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th>Rol</th>
+                        <th>Teléfono</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="estudiante : ${estudiantes}">
+                        <td th:text="${estudiante.cedula}"></td>
+                        <td th:text="${estudiante.nombre}"></td>
+                        <td th:text="${estudiante.apellidos}"></td>
+                        <td th:text="${estudiante.email}"></td>
+                        <td th:text="${estudiante.username}"></td>
+                        <td th:text="${estudiante.rol}"></td>
+                        <td th:text="${estudiante.telefono}"></td>
+                        <td th:text="${estudiante.estado}"></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <div th:if="${estudiantes == null or estudiantes.empty}">
+            La lista de estudiantes está vacía.
+        </div>
     </body>
+
 </html>
