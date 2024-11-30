@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author HP
  */
-public interface IEstudiantesCrud extends CrudRepository<Estudiantes, String> {
+public interface IEstudiantesCrud extends CrudRepository<Estudiantes, Integer> {
     
 }

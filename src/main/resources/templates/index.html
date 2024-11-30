@@ -7,6 +7,7 @@
     </head>
     <body>
         <h2>Página de Inicio</h2>
+        <a th:href="@{/agregar}">Agregar Estudiante</a>
         <h4>Lista de estudiantes</h4>
         <div th:if="${estudiantes != null and !estudiantes.empty}">
 
