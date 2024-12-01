@@ -1,43 +1,85 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" 
-      xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>DATOS DEL ESTUDIANTE</title>
-    <meta charset="UTF-8">
-</head>
-<body>
-    <h1>Datos del Estudiante</h1>
-    <a th:href="@{/}">REGRESAR</a>
-    <br/>
-     <form th:action="@{/guardar}" th:object="${estudiante}" method="post">
-        <label for="cedula">Cédula:</label>
-        <input type="text" th:field="*{cedula}" id="cedula"/><br>
-
-        <label for="username">Username:</label>
-        <input type="text" th:field="*{username}" id="username"/><br>
-
-        <label for="password">Password:</label>
-        <input type="password" th:field="*{password}" id="password"/><br>
-
-        <label for="nombre">Nombre:</label>
-        <input type="text" th:field="*{nombre}" id="nombre"/><br>
-
-        <label for="apellidos">Apellidos:</label>
-        <input type="text" th:field="*{apellidos}" id="apellidos"/><br>
-
-        <label for="email">Email:</label>
-        <input type="email" th:field="*{email}" id="email"/><br>
-
-        <label for="telefono">Teléfono:</label>
-        <input type="text" th:field="*{telefono}" id="telefono"/><br>
-
-        <label for="rol">Rol:</label>
-        <input type="text" th:field="*{rol}" id="rol"/><br>
-
-        <label for="estado">Estado:</label>
-        <input type="text" th:field="*{estado}" id="estado"/><br>
-
-        <button type="submit">Guardar</button>
-    </form>
-</body>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>DATOS DEL USUARIO</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+         <h1>Datos del Usuario</h1> 
+        <form th:action="@{/guardar}" method="POST" th:object="${usuario}">
+            <table border="1" >
+                <tr>
+                    <td><label for="cedula">CEDULA:</label></td>
+                    <td>
+                        <input type="text" name="cedula" th:field="*{code}" />
+                        <span th:if="${#fields.hasErrors('code')}" th:errors="*{code}">La cédula es requerida</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="password">CONTRASEÑA:</label></td>
+                    <td>
+                        <input type="password" name="password" th:field="*{password}" />
+                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">La contraseña es requerida</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="name">NOMBRES:</label></td>
+                    <td>
+                        <input type="text" name="name" th:field="*{name}" />
+                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">El nombre es requerido</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="apellidos">APELLIDOS:</label></td>
+                    <td>
+                        <input type="text" name="apellidos" th:field="*{apellidos}" />
+                        <span th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}">Los apellidos son requeridos</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="rol">ROL:</label></td>
+                    <td>
+                        <input type="text" name="rol" th:field="*{rol}" />
+                        <span th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}">El rol es requerido</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="email">EMAIL:</label></td>
+                    <td>
+                        <input type="email" name="email" th:field="*{email}" />
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">El email es requerido</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="telefono">TELEFONO:</label></td>
+                    <td>
+                        <input type="text" name="telefono" th:field="*{telefono}" />
+                        <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}">El teléfono es requerido</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="estado">ESTADO:</label></td>
+                    <td>
+                        <input type="text" name="estado" th:field="*{estado}" />
+                        <span th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}">El estado es requerido</span>
+                    </td>
+                </tr>
+                <tr> 
+                    <td><label for="fechaRegistro">FECHA DE REGISTRO:</label></td>
+                    <td>
+                        <input type="date" name="fechaRegistro" th:field="*{fechaRegistro}" />
+                        <span th:if="${#fields.hasErrors('fechaRegistro')}" th:errors="*{fechaRegistro}">La fecha de registro es requerida</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="reset" value="LIMPIAR" /> &nbsp;&nbsp;&nbsp;
+                        <input type="submit" value="GUARDAR" />
+                        <hr>
+                            <a th:href="@{/}">REGRESAR</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
 </html>
